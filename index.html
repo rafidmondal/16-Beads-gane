@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#120f0b">
+<meta name="description" content="16/16 Bead — a traditional strategy board game, playable against computer or a friend.">
+<title>16/16 Bead — Classic Strategy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="ambient"></div>
+
+  <header class="topbar">
+    <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <div class="brand">
+      <span class="brand-kicker">TRADITIONAL STRATEGY BOARD</span>
+      <h1>16/16 <span>BEAD</span></h1>
+    </div>
+    <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <div class="eyebrow">CLASSIC EDITION</div>
+          <h2>Sixteen Bead</h2>
+          <p>Classic local strategy with capture chains, tactical jumps and a smart computer opponent.</p>
+        </div>
+        <div class="hero-board-mini" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="ai">
+          <div class="mode-icon">◉</div>
+          <div><strong>Vs Computer</strong><small>Play against the AI opponent</small></div>
+          <b>›</b>
+        </button>
+        <button class="mode-card" data-mode="friend">
+          <div class="mode-icon">♟</div>
+          <div><strong>Vs Friend</strong><small>Two players, one device</small></div>
+          <b>›</b>
+        </button>
+      </div>
+
+      <div class="home-actions">
+        <button class="outline-btn" id="tutorialBtn">How to Play</button>
+        <button class="outline-btn" id="statsBtn">Statistics</button>
+      </div>
+      <div class="saved-banner hidden" id="savedBanner">
+        <span>●</span> Saved game available
+        <button id="resumeBtn">Resume</button>
+        <button id="discardSaveBtn" aria-label="Discard saved game">×</button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="game-head">
+        <button class="back-btn" id="backBtn">‹ <span>Home</span></button>
+        <div class="matchup">
+          <div class="player-pill active" id="ivoryPill"><span class="bead ivory"></span><div><b id="p1Name">You</b><small>IVORY</small></div><em id="ivoryCount">16</em></div>
+          <div class="vs">VS</div>
+          <div class="player-pill" id="onyxPill"><div><b id="p2Name">Computer</b><small>ONYX</small></div><em id="onyxCount">16</em><span class="bead onyx"></span></div>
+        </div>
+      </div>
+
+      <div class="turn-panel">
+        <div class="turn-label" id="turnLabel">YOUR MOVE</div>
+        <div class="bead-track" id="beadTrack"></div>
+        <div class="capture-note hidden" id="captureNote">CAPTURE AVAILABLE — JUMP REQUIRED</div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board-shell">
+          <svg id="board" viewBox="0 0 1000 1160" role="img" aria-label="16/16 Bead board"></svg>
+          <div class="board-shine"></div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <button id="undoBtn" class="control-btn">↶ <span>Undo</span></button>
+        <button id="pauseBtn" class="control-btn primary">Ⅱ <span>Pause</span></button>
+        <button id="restartBtn" class="control-btn">↻ <span>Restart</span></button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
+  <aside class="side-panel" id="sidePanel">
+    <div class="side-head"><b>16/16 BEAD</b><button id="closeMenu">×</button></div>
+    <button data-panel="tutorial">How to Play</button>
+    <button data-panel="stats">Statistics</button>
+    <button data-panel="settings">Settings</button>
+    <div class="side-note">Original implementation • Offline ready</div>
+  </aside>
+  <div class="panel-backdrop" id="panelBackdrop"></div>
+
+  <div id="toast" class="toast"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
