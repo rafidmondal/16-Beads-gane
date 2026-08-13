@@ -1,7 +1,5 @@
-const CACHE_NAME = '16-bead-game-v1';
+const CACHE_NAME = '16-bead-game-v2';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
   '/manifest.json',
   '/icon-192.svg',
   '/icon-512.svg'
@@ -33,11 +31,35 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  
+
+  const isHTMLRequest =
+    event.request.mode === 'navigate' ||
+    event.request.headers.get('accept')?.includes('text/html');
+
+  if (isHTMLRequest) {
+    // Network-first for HTML: always fetch the latest index.html so it
+    // references the current build's JS/CSS files. Falls back to cache
+    // only when the network is unavailable (offline support).
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache-first (with background refresh) for static assets. Safe here
+  // because build output filenames are content-hashed and change on
+  // every deploy, so a cached entry always matches its own content.
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Return cached response and fetch updated version in background
         fetch(event.request).then((networkResponse) => {
           if (networkResponse.status === 200) {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
