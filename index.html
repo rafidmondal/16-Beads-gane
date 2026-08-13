@@ -1,110 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#120f0b">
-<meta name="description" content="16/16 Bead — a traditional strategy board game, playable against computer or a friend.">
-<title>16/16 Bead — Classic Strategy</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="app">
-  <div class="ambient"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16 Bead Game Online – Play 16 Guti / Sholo Guti | Raxzen</title>
+    
+    <!-- SEO Primary Meta Tags -->
+    <meta name="description" content="Play 16 Bead Game online, a classic 16 Guti and Sholo Guti strategy board game. Move 16 beads, capture opponent pieces with bonus jump moves. Free to play on mobile and desktop." />
+    <meta name="keywords" content="16 bead game, 16 guti, sholo guti, sixteen soldiers, 16 goti, 16 kaati, indian checkers, traditional board game, 16 bead game online, play 16 guti" />
+    <meta name="author" content="Raxzen" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://16-bead-game.raxzen.in/" />
+    <meta name="theme-color" content="#060403" />
 
-  <header class="topbar">
-    <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
-    <div class="brand">
-      <span class="brand-kicker">TRADITIONAL STRATEGY BOARD</span>
-      <h1>16/16 <span>BEAD</span></h1>
-    </div>
-    <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
-  </header>
+    <!-- PWA Web Manifest & Favicon -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.svg" />
 
-  <main>
-    <section id="homeScreen" class="screen active">
-      <div class="hero-card">
-        <div class="hero-copy">
-          <div class="eyebrow">CLASSIC EDITION</div>
-          <h2>Sixteen Bead</h2>
-          <p>Classic local strategy with capture chains, tactical jumps and a smart computer opponent.</p>
-        </div>
-        <div class="hero-board-mini" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-          <i></i><i></i><i></i><i></i><i></i>
-        </div>
-      </div>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://16-bead-game.raxzen.in/" />
+    <meta property="og:title" content="16 Bead Game Online – Play 16 Guti / Sholo Guti" />
+    <meta property="og:description" content="Play the classic 16 Bead / 16 Guti strategy board game online. Capture all 16 opponent beads with bonus moves to win." />
+    <meta property="og:image" content="https://16-bead-game.raxzen.in/icon-512.svg" />
+    <meta property="og:site_name" content="16 Bead Game" />
 
-      <div class="mode-grid">
-        <button class="mode-card" data-mode="ai">
-          <div class="mode-icon">◉</div>
-          <div><strong>Vs Computer</strong><small>Play against the AI opponent</small></div>
-          <b>›</b>
-        </button>
-        <button class="mode-card" data-mode="friend">
-          <div class="mode-icon">♟</div>
-          <div><strong>Vs Friend</strong><small>Two players, one device</small></div>
-          <b>›</b>
-        </button>
-      </div>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://16-bead-game.raxzen.in/" />
+    <meta name="twitter:title" content="16 Bead Game Online – Play 16 Guti / Sholo Guti" />
+    <meta name="twitter:description" content="Play 16 Bead Game online against AI Bot or with friends. Authentic 16 Guti / Sholo Guti traditional board game." />
+    <meta name="twitter:image" content="https://16-bead-game.raxzen.in/icon-512.svg" />
 
-      <div class="home-actions">
-        <button class="outline-btn" id="tutorialBtn">How to Play</button>
-        <button class="outline-btn" id="statsBtn">Statistics</button>
-      </div>
-      <div class="saved-banner hidden" id="savedBanner">
-        <span>●</span> Saved game available
-        <button id="resumeBtn">Resume</button>
-        <button id="discardSaveBtn" aria-label="Discard saved game">×</button>
-      </div>
-    </section>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <section id="gameScreen" class="screen">
-      <div class="game-head">
-        <button class="back-btn" id="backBtn">‹ <span>Home</span></button>
-        <div class="matchup">
-          <div class="player-pill active" id="ivoryPill"><span class="bead ivory"></span><div><b id="p1Name">You</b><small>IVORY</small></div><em id="ivoryCount">16</em></div>
-          <div class="vs">VS</div>
-          <div class="player-pill" id="onyxPill"><div><b id="p2Name">Computer</b><small>ONYX</small></div><em id="onyxCount">16</em><span class="bead onyx"></span></div>
-        </div>
-      </div>
+    <!-- JSON-LD Schema 1: SoftwareApplication / Game -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "16 Bead Game - 16 Guti & Sholo Guti",
+      "operatingSystem": "All",
+      "applicationCategory": "GameApplication",
+      "genre": "Strategy Board Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "url": "https://16-bead-game.raxzen.in/",
+      "author": {
+        "@type": "Organization",
+        "name": "Raxzen"
+      },
+      "description": "Authentic 16 Bead (Sholo Guti) strategy board game online with single-player AI mode, 2-player pass & play, chain captures, and bonus moves."
+    }
+    </script>
 
-      <div class="turn-panel">
-        <div class="turn-label" id="turnLabel">YOUR MOVE</div>
-        <div class="bead-track" id="beadTrack"></div>
-        <div class="capture-note hidden" id="captureNote">CAPTURE AVAILABLE — JUMP REQUIRED</div>
-      </div>
+    <!-- JSON-LD Schema 2: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 16 Bead Game (Sholo Guti)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 16 Bead Game, widely known as Sholo Guti, 16 Guti, Sixteen Soldiers, or 16 Goti, is a classic 2-player abstract strategy board game played on a 37-point board where each player controls 16 beads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do captures and bonus moves work in 16 Bead Game?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A player captures an opponent bead by jumping over it into an empty node directly behind it. Every capture grants a Free Bonus Move, allowing continuous chain captures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you win the 16 Bead Game?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You win by capturing all 16 of your opponent's beads or completely blocking all of their legal moves so they cannot make any step."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-zinc-950 text-amber-100 select-none overflow-x-hidden">
+    <div id="root"></div>
 
-      <div class="board-wrap">
-        <div class="board-shell">
-          <svg id="board" viewBox="0 0 1000 1160" role="img" aria-label="16/16 Bead board"></svg>
-          <div class="board-shine"></div>
-        </div>
-      </div>
+    <!-- CRAWLABLE SEO STATIC CONTENT (Hidden visually from absolute view but 100% crawlable by Google Search Indexers) -->
+    <article style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
+      <h1>About Bead 16 Game – Play 16 Guti Online</h1>
+      <p>Bead 16, also known as 16 Guti, is a free online traditional strategy board game from the Raxzen game collection.</p>
+      <p>The game brings the classic strategy of a 16-bead board game into a modern, premium, browser-based experience with a carefully designed board, smooth interactions, visual move guidance, capture mechanics, responsive controls, and a polished tabletop-inspired interface.</p>
+      <p>The objective is simple: Move your beads strategically, capture your opponent's beads, control the board, and be the last player standing.</p>
 
-      <div class="game-controls">
-        <button id="undoBtn" class="control-btn">↶ <span>Undo</span></button>
-        <button id="pauseBtn" class="control-btn primary">Ⅱ <span>Pause</span></button>
-        <button id="restartBtn" class="control-btn">↻ <span>Restart</span></button>
-      </div>
-    </section>
-  </main>
+      <section>
+        <h2>Classic 16-Bead Strategy</h2>
+        <p>Bead 16 is built around a larger strategic board containing 37 playable positions connected through a structured network of lines.</p>
+        <p>Each side begins with 16 beads, giving both players a large number of pieces to control and creating considerably more strategic possibilities than smaller board games.</p>
+        <ul>
+          <li>16 beads per side</li>
+          <li>37 playable board positions</li>
+          <li>Connected movement paths</li>
+          <li>Capture jumps</li>
+          <li>Bonus moves after captures</li>
+          <li>Legal-move detection</li>
+          <li>Capture indicators</li>
+          <li>Move hints</li>
+          <li>Win and loss detection</li>
+          <li>Restart functionality</li>
+          <li>Live bead-count display</li>
+        </ul>
+      </section>
 
-  <div class="modal-layer" id="modalLayer" aria-hidden="true">
-    <div class="modal" id="modalContent"></div>
-  </div>
+      <section>
+        <h2>Play Against the Computer</h2>
+        <p>You can challenge the built-in Computer opponent and play a complete single-player match. The computer automatically evaluates available capture moves first and performs a capture whenever one is available. If no capture is available, it selects from available normal moves.</p>
+      </section>
 
-  <aside class="side-panel" id="sidePanel">
-    <div class="side-head"><b>16/16 BEAD</b><button id="closeMenu">×</button></div>
-    <button data-panel="tutorial">How to Play</button>
-    <button data-panel="stats">Statistics</button>
-    <button data-panel="settings">Settings</button>
-    <div class="side-note">Original implementation • Offline ready</div>
-  </aside>
-  <div class="panel-backdrop" id="panelBackdrop"></div>
+      <section>
+        <h2>Play With a Friend</h2>
+        <p>Two people can play against each other on the same device in Pass & Play mode. Suitable for friends, family, local challenges, casual matches, traditional board-game sessions, and quick competitive games.</p>
+      </section>
 
-  <div id="toast" class="toast"></div>
-</div>
-<script src="app.js"></script>
-</body>
+      <section>
+        <h2>Capture & Bonus-Move System</h2>
+        <p>Capturing an opponent's bead is one of the most important parts of the gameplay. When a legal jump is available, the game visually highlights the capture position. After a successful capture, the player receives a bonus move, allowing another strategic action.</p>
+      </section>
+
+      <section>
+        <h2>Smart Move Guidance</h2>
+        <p>When a bead is selected, the game visually indicates available normal moves, available capture positions, the selected bead, and capture opportunities.</p>
+      </section>
+
+      <section>
+        <h2>Multiple Ways to Win</h2>
+        <p>The game checks the board continuously for winning conditions. A player can win by successfully capturing all of the opponent's beads or when an opponent has no legal moves remaining.</p>
+      </section>
+
+      <section>
+        <h2>Part of the Raxzen Game Collection</h2>
+        <p>Other Raxzen games include:</p>
+        <ul>
+          <li>Army Run 3D: https://army-run-3d-game.raxzen.in/</li>
+          <li>Tic-Tac-Toe: https://tic-tac-toe.raxze.in/</li>
+          <li>Toss Heads or Tails: https://toss-heads-or-tails.raxzen.in/</li>
+          <li>Bead 3: https://bead-3-game.raxzen.in/</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Developer Links & Support</h2>
+        <p>Developer Website: https://rafid-mondal.raxzen.in/</p>
+        <p>Developer's Other Apps & Services: https://raxzenapp-p9ksao39.manus.space/</p>
+        <p>Bead 16 Game: https://bead-16-game.raxzen.in/</p>
+        <p>Email: radidmondal@gmail.com</p>
+      </section>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is Bead 16?</h3>
+        <p>Bead 16, also known as 16 Guti, is a traditional-style strategy board game featuring 16 beads per side and a connected multi-position board.</p>
+        
+        <h3>Is Bead 16 free?</h3>
+        <p>Yes. It is designed as a free browser-based Raxzen game.</p>
+
+        <h3>Can I play against the computer?</h3>
+        <p>Yes. Includes a built-in Computer opponent.</p>
+
+        <h3>Can I play with a friend?</h3>
+        <p>Yes. Supports local Vs Friend (Pass & Play) on the same device.</p>
+      </section>
+    </article>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
