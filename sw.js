@@ -1,8 +1,8 @@
 const CACHE_NAME = '16-bead-game-v2';
 const ASSETS_TO_CACHE = [
   '/manifest.json',
-  '/icon-192.svg',
-  '/icon-512.svg'
+  '/icon-192.png',
+  '/icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
