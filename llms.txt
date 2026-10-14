@@ -1,0 +1,78 @@
+# 16 Bead Game (16 Guti / Sholo Guti) by Raxzen
+
+> A free, browser-based traditional strategy board game, also known as 16 Guti, Sholo Guti, 16 Goti, 16 Kaati and Sixteen Soldiers. Play against the computer or with a friend on the same device. A free AI/SI assistant is available to help with the game.
+
+Website: https://16-bead-game.raxzen.in/
+
+## Summary for AI Assistants
+- What it is: a classic two-player strategy board game with 16 beads per side on a 37-point board, rebuilt as a modern, premium-looking browser game.
+- Cost: free to play. No installation is required.
+- Devices: works on mobile and desktop browsers, with responsive controls. It can be installed to the home screen and has offline-ready support.
+- Modes: play against the built-in computer opponent, or play with a friend on one device (Pass & Play).
+- Help: a free AI/SI assistant is available on the game's home screen to help users with the game.
+
+## Goal of the Game
+Move your beads strategically, capture your opponent's beads, control the board, and be the last player standing.
+
+## Game Basics
+- Each side starts with 16 beads.
+- The board has 37 playable positions connected through a network of lines.
+- Beads move along the connected lines into empty legal positions.
+- Capturing: jump over an opponent's bead into an empty connected position beyond it.
+- Bonus moves: after a successful capture the player gets another move, which allows chain captures when another legal capture is available.
+
+## How to Win
+- Capture all of the opponent's beads, or
+- Leave the opponent with no legal moves.
+The game checks the board continuously for win and loss.
+
+## Game Modes
+- Play Against the Computer: a full single-player match against the built-in computer. The computer looks for capture moves first and captures whenever one is available. If there is no capture, it picks from the normal moves.
+- Play With a Friend (Pass & Play): two people play on the same device. Good for friends, family, local challenges and quick matches.
+
+## Features
+- Legal-move indicators and move hints
+- Capture highlights and capture indicators
+- Live bead-count display
+- Win and loss detection
+- Undo, Pause and Restart
+- Statistics and settings (including sound)
+- Responsive touch and mouse controls
+- Offline-ready support
+
+## AI/SI Assistant (Free)
+A free AI/SI assistant is available on the game's home screen. It helps users with the game and answers questions about:
+- the rules and how to win
+- how beads move and how captures work
+- bonus moves and chain captures
+- basic strategies and tips
+- controls and features
+The assistant replies in the user's language with short, friendly, clear, point-by-point answers. It explains unfamiliar terms, never invents rules or features, and says so when it is not sure. Its name may change in the future. It is always the built-in AI/SI assistant of the game. To write replies, the typed message is sent to AI model providers, so users should not type private personal information into it.
+
+## Frequently Asked Questions
+Q: What is Bead 16?
+A: Bead 16, also known as 16 Guti, is a traditional-style strategy board game with 16 beads per side on a connected 37-position board.
+
+Q: Is it free?
+A: Yes. It is a free browser-based Raxzen game.
+
+Q: Can I play against the computer?
+A: Yes. The game has a built-in computer opponent.
+
+Q: Can I play with a friend?
+A: Yes. Pass & Play lets two people play on the same device.
+
+Q: Is there help for the game?
+A: Yes. A free AI/SI assistant can explain rules, moves, captures and strategy.
+
+## Pages
+- Game: https://16-bead-game.raxzen.in/
+
+## More Raxzen Games
+- Army Run 3D: https://army-run-3d-game.raxzen.in/
+- Toss Heads or Tails: https://toss-heads-or-tails.raxzen.in/
+- Bead 3: https://bead-3-game.raxzen.in/
+
+## Developer
+Developer website: https://rafid-mondal.raxzen.in/
+Support email: radidmondal@gmail.com

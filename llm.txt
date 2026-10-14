@@ -1,0 +1,21 @@
+# 16 Bead Game (by Raxzen)
+https://16-bead-game.raxzen.in/
+
+## In short
+This is the classic 16 Guti (Sholo Guti) board game, free in your browser. You and your opponent each get 16 beads on a 37-point board. Slide your beads along the lines, jump over an enemy bead to capture it, and grab a bonus move when you do. Capture every enemy bead, or leave them with no moves, and you win.
+
+## How you can play
+- Against the computer, on your own.
+- With a friend, passing one phone or screen back and forth.
+- On any phone or computer, nothing to install. You can add it to your home screen and it works offline too.
+
+## Handy things inside
+Move hints, capture highlights, a live bead count, Undo, Pause, Restart, stats and sound settings.
+
+## Need a hand?
+There's a free AI/SI assistant on the home screen. Ask it how a move works, how captures and bonus moves go, or for a quick strategy tip. It answers in your language, short and friendly. Its name may change later, but it's always the built-in assistant. Please don't type private details into it, since your message is sent to AI model providers to write the reply.
+
+## Contact
+radidmondal@gmail.com
+
+More details: https://16-bead-game.raxzen.in/llms.txt

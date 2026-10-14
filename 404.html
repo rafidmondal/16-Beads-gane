@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found | 16 Bead Game</title>
+    <meta name="description" content="This page was not found. Please check the URL and go back to the 16 Bead Game home page." />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#060403" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <style>
+      *{box-sizing:border-box}
+      html,body{margin:0;min-height:100%}
+      body{
+        font-family:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+        background:radial-gradient(ellipse at 50% 0%,#2a1c0c 0%,#060403 65%);
+        color:#e9d8b4;overflow-x:hidden;-webkit-font-smoothing:antialiased
+      }
+      .beads{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+      .beads span{position:absolute;bottom:-30px;border-radius:50%;opacity:.5;animation:rise linear infinite;background:radial-gradient(circle at 32% 28%,#f3dca0,#b88d3b 55%,#5a4015)}
+      .beads span.dark{background:radial-gradient(circle at 32% 28%,#8a6d4a,#2c1f10 55%,#100a04)}
+      @keyframes rise{to{transform:translateY(-115vh);opacity:0}}
+      main{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 18px}
+      .bead{width:clamp(70px,16vw,120px);height:clamp(70px,16vw,120px);border-radius:50%;background:radial-gradient(circle at 32% 28%,#f8e6b0,#b88d3b 55%,#5a4015);box-shadow:0 14px 34px rgba(184,141,59,.4);animation:dance 1.6s ease-in-out infinite}
+      @keyframes dance{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-16px) scale(1.07)}}
+      .code{font-family:Cinzel,Georgia,"Times New Roman",serif;font-size:clamp(64px,18vw,140px);font-weight:900;line-height:1;margin:14px 0 0;color:#e6c46f;text-shadow:0 6px 26px rgba(184,141,59,.45)}
+      h1{font-family:Cinzel,Georgia,"Times New Roman",serif;font-size:clamp(22px,5.2vw,38px);margin:8px 0 10px;color:#f3e3bd}
+      .msg{font-size:clamp(16px,3.6vw,21px);font-weight:700;margin:0 0 6px}
+      .url{display:inline-block;max-width:92vw;margin:8px 0 0;padding:8px 14px;border-radius:12px;background:rgba(184,141,59,.14);border:1px solid rgba(184,141,59,.35);font:600 14px/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;color:#e6c46f}
+      .home{display:inline-block;margin:26px 0 10px;padding:20px 48px;border-radius:999px;background:linear-gradient(135deg,#e6c46f,#b88d3b);color:#1a1006;font-size:clamp(19px,4.6vw,28px);font-weight:800;text-decoration:none;box-shadow:0 12px 32px rgba(184,141,59,.4);transition:transform .15s}
+      .home:hover,.home:focus{transform:scale(1.05)}
+      .home:active{transform:scale(.97)}
+      .auto{margin:4px 0 0;font-size:15px;font-weight:700;color:#cdb98a}
+      .auto a{color:#e6c46f}
+      .help{margin:34px 0 0;font-size:15px;color:#cdb98a}
+      .help a{color:#e6c46f;font-weight:800;word-break:break-all}
+      @media (prefers-reduced-motion:reduce){.bead,.beads span{animation:none}}
+    </style>
+  </head>
+  <body>
+    <div class="beads" aria-hidden="true" id="beads"></div>
+    <main>
+      <div class="bead" aria-hidden="true"></div>
+      <p class="code">404</p>
+      <h1>Oops! This page was not found</h1>
+      <p class="msg">Please check the URL. It may have a small typo or a wrong link.</p>
+      <span class="url" id="wrongUrl"></span>
+      <a class="home" href="/">Go to Home Page</a>
+      <p class="auto" id="auto">Taking you home in <b id="sec">10</b> seconds… <a href="#" id="stay">Stay here</a></p>
+      <p class="help">Need help? Developer support: <a href="mailto:radidmondal@gmail.com">radidmondal@gmail.com</a></p>
+    </main>
+    <script>
+      (function () {
+        try { document.getElementById('wrongUrl').textContent = location.pathname + location.search; } catch (e) {}
+
+        var box = document.getElementById('beads');
+        for (var i = 0; i < 16; i++) {
+          var s = document.createElement('span');
+          var size = 12 + Math.round(Math.random() * 22);
+          if (i % 2) s.className = 'dark';
+          s.style.width = s.style.height = size + 'px';
+          s.style.left = Math.round(Math.random() * 96) + '%';
+          s.style.animationDuration = (9 + Math.random() * 9).toFixed(1) + 's';
+          s.style.animationDelay = (-Math.random() * 12).toFixed(1) + 's';
+          box.appendChild(s);
+        }
+
+        var left = 10, timer;
+        var secEl = document.getElementById('sec');
+        function stop() {
+          clearInterval(timer);
+          document.getElementById('auto').style.display = 'none';
+        }
+        document.getElementById('stay').addEventListener('click', function (e) { e.preventDefault(); stop(); });
+        timer = setInterval(function () {
+          left--;
+          secEl.textContent = left;
+          if (left <= 0) { clearInterval(timer); location.replace('/'); }
+        }, 1000);
+      })();
+    </script>
+  </body>
+</html>
